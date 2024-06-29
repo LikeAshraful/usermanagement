@@ -1,21 +1,23 @@
 <?php
 use PHPUnit\Framework\TestCase;
-include_once '../src/models/User.php';
+
+include_once __DIR__ . '/../models/User.php';
+include_once __DIR__ . '/../database.php';
 
 class UserTest extends TestCase {
     private $db;
     private $user;
 
     protected function setUp(): void {
-        $database = new Database();
-        $this->db = $database->getConnection();
+        $database   = new Database();
+        $this->db   = $database->getConnection();
         $this->user = new User($this->db);
     }
 
     public function testCreateUser() {
         $this->user->username = "admin";
-        $this->user->email = "admin@example.com";
-        $this->user->password = "12345678";
+        $this->user->email    = "admin@example.com";
+        $this->user->password = md5("12345678"); // Ensure to hash the password
 
         $this->assertTrue($this->user->create());
     }
@@ -26,10 +28,10 @@ class UserTest extends TestCase {
     }
 
     public function testUpdateUser() {
-        $this->user->id = 1;
+        $this->user->id       = 1;
         $this->user->username = "updateduser";
-        $this->user->email = "updated@example.com";
-        $this->user->password = "newpassword";
+        $this->user->email    = "updated@example.com";
+        $this->user->password = md5("newpassword"); // Ensure to hash the password
 
         $this->assertTrue($this->user->update());
     }
