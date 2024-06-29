@@ -37,6 +37,7 @@ cd usermanagement
 composer init
 composer install
 ```
+
 ### Step 3: Configure the Database
 
 ```sh
@@ -55,6 +56,10 @@ CREATE TABLE users (
     password VARCHAR(255) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+INSERT INTO users (username, email, password)
+VALUES ('admin', 'admin@admin.com', '$2y$10$qmZb7hRwvqUBEywC71Bvd.d4ieMkny91sxbUDsop/GskDzQYipGxq');
+
 ```
 
 ### Step 4: Start the Server
@@ -64,7 +69,5 @@ php -S localhost:8000
 ```
 
 ### Step 5: Access the Application
+
 Open your browser and navigate to http://localhost:8000/index.php.
-
-
-
