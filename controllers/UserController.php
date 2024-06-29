@@ -29,6 +29,17 @@ class UserController {
         return $users;
     }
 
+    public function getUserById($id) {
+        $this->user->id = $id;
+        $this->user->readOne();
+        return [
+            'id' => $this->user->id,
+            'username' => $this->user->username,
+            'email' => $this->user->email,
+            'password' => $this->user->password
+        ];
+    }
+
     public function updateUser($id, $username, $email, $password) {
         $this->user->id       = $id;
         $this->user->username = $username;

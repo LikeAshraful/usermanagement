@@ -35,8 +35,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 }
 
-$users = $userController->getUsers();
+$action = $_GET['action'] ?? 'list';
 
-include 'views/list_users.php';
+if ($action == 'add') {
+    include 'views/add_user.php';
+} elseif ($action == 'edit') {
+    $id = $_GET['id'];
+    $user = $userController->getUserById($id);
+    include 'views/edit_user.php';
+} else {
+    $users = $userController->getUsers();
+    include 'views/list_users.php';
+}
 
 ?>

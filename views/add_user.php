@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Add User</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
-    <form action="index.php" method="POST">
+    <h1>Add User</h1>
+    <form class="form" action="../index.php" method="POST">
         <input type="hidden" name="action" value="create">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required>
@@ -19,5 +20,6 @@
         <br>
         <button type="submit">Add User</button>
     </form>
+    <a href="../index.php">Back to List</a>
 </body>
 </html>

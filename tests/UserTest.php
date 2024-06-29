@@ -13,9 +13,9 @@ class UserTest extends TestCase {
     }
 
     public function testCreateUser() {
-        $this->user->username = "testuser";
-        $this->user->email = "test@example.com";
-        $this->user->password = "password";
+        $this->user->username = "admin";
+        $this->user->email = "admin@example.com";
+        $this->user->password = "12345678";
 
         $this->assertTrue($this->user->create());
     }

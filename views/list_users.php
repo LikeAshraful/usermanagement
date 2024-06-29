@@ -7,7 +7,8 @@
 </head>
 <body>
     <a href="logout.php">Logout</a>
-    <a href="add_user.php">Add User</a>
+    <a href="../index.php?action=add">Add New User</a>
+
     <table>
         <thead>
             <tr>
@@ -24,7 +25,7 @@
                     <td><?= $user['username'] ?></td>
                     <td><?= $user['email'] ?></td>
                     <td>
-                        <a href="edit_user.php?id=<?= $user['id'] ?>">Edit</a>
+                        <a class="button" href="../index.php?action=edit&id=<?= $user['id'] ?>">Edit</a>
                         <form action="index.php" method="POST" style="display:inline;">
                             <input type="hidden" name="action" value="delete">
                             <input type="hidden" name="id" value="<?= $user['id'] ?>">
